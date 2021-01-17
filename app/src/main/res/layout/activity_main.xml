@@ -12,6 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/instructions"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="Hi mom" />
+        android:text="" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookInput" />
 </LinearLayout>
