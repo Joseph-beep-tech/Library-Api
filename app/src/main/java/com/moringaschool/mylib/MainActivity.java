@@ -11,20 +11,20 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private EditText etBookTitle;
-    private TextView tvAuthor, tvTitle;
+    private EditText mBookInput;
+    private TextView mAuthorText, mTitleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etBookTitle = (EditText) findViewById(R.id.bookInput);
-        tvAuthor = (TextView) findViewById(R.id.authorText);
-        tvTitle = (TextView) findViewById(R.id.titleText);
+        mBookInput = (EditText) findViewById(R.id.bookInput);
+        mAuthorText = (TextView) findViewById(R.id.authorText);
+        mTitleText = (TextView) findViewById(R.id.titleText);
     }
 
     public void searchBooks(View view) {
-        String queryString = etBookTitle.getText().toString();
+        String queryString = mBookInput.getText().toString();
         Log.i(TAG, "searched: "+queryString);
     }
 }
