@@ -3,12 +3,14 @@ package com.moringaschool.mylib;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private EditText etBookTitle;
     private TextView tvAuthor, tvTitle;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchBooks(View view) {
-
+        String queryString = etBookTitle.getText().toString();
+        Log.i(TAG, "searched: "+queryString);
     }
 }
