@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Lib</string>
+    <string name="instructions">Enter a name to search your favorite  books from famous libraries around the world.</string>
+    
+    <string name="button_text">Search Books</string>
+    <string name="input_hint">Enter a Book Title</string>
 </resources>
