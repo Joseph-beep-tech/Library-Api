@@ -16,8 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etBookTitle =(EditText) findViewById(R.id.bookInput);
-        tvAuthor =(TextView) findViewById(R.id.authorText);
+        etBookTitle = (EditText) findViewById(R.id.bookInput);
+        tvAuthor = (TextView) findViewById(R.id.authorText);
+        tvTitle = (TextView) findViewById(R.id.titleText);
     }
 
     public void searchBooks(View view) {
