@@ -2,12 +2,17 @@ package com.moringaschool.mylib;
 
 import android.app.DownloadManager;
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLClassLoader;
+
+import static android.content.ContentValues.TAG;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
@@ -50,10 +55,50 @@ public class NetworkUtils {
             //Read the response using an inputStream  and stringBuffer, then convert it to string
 
             InputStream inputStream = urlConnection.getInputStream();
+            StringBuffer buffer = new StringBuffer();
+
+            if(inputStream == null){
+                return null;
+            }
+
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+
+            while ((line = reader.readLine()) != null){
+                buffer.append(line + "\n");
+            }
+
+            if (buffer.length() == 0){
+
+                return null;
+            }
+
+            bookJSONString = buffer.toString();
 
         }catch (Exception ex) {
 
+            ex.printStackTrace();
+            return null;
+
         }finally {
+
+            if(urlConnection!=null){
+
+                urlConnection.disconnect();
+
+            }
+
+            if (reader != null){
+
+                try{
+                    reader.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+
+            Log.d(LOG_TAG, bookJSONString);
             return bookJSONString;
         }
     }
